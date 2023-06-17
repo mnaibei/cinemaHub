@@ -15,8 +15,13 @@ const displayMovies = (movies) => {
   movies.forEach((movie) => {
     const movieCard = document.createElement('div');
     movieCard.classList.add('movie-item');
+
+    const posterUrl = movie.Poster !== 'N/A'
+      ? movie.Poster
+      : 'https://images.unsplash.com/photo-1509281373149-e957c6296406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1028&q=80';
+
     movieCard.innerHTML = `
-      <img src=${movie.Poster}>
+      <img src=${posterUrl}>
         <div class="movie-info">
           <h3>${movie.Title}</h3>
             <p>${movie.Type}</p>
@@ -44,7 +49,7 @@ const displayMovies = (movies) => {
 
     // Function to toggle visibility of details container
     function toggleDetailsVisibility(detailsContainer) {
-      detailsContainer.style.display = detailsContainer.style.display === 'none' ? 'block' : 'none';
+      detailsContainer.style.display = detailsContainer.style.display === 'none' ? 'flex' : 'none';
     }
 
     viewMoreBtn.addEventListener('click', () => {
@@ -55,12 +60,19 @@ const displayMovies = (movies) => {
         // Fetch movie details and display
         fetchMovieDetails(movie.imdbID).then((data) => {
           detailsContainer.innerHTML = `
-                <p>Description: ${data.Plot}</p>
-                <p>Cast: ${data.Actors}</p>
-                <p>Director: ${data.Director}</p>
-                
-              `;
+            <div class="close-btn">&times;</div> 
+            <img src=${posterUrl}>
+            <h3>${movie.Title}</h3>
+            <p>Description: ${data.Plot}</p>
+            <p>Cast: ${data.Actors}</p>
+            <p>Director: ${data.Director}</p>
+          `;
           toggleDetailsVisibility(detailsContainer);
+
+          const closeButton = detailsContainer.querySelector('.close-btn');
+          closeButton.addEventListener('click', () => {
+            toggleDetailsVisibility(detailsContainer);
+          });
         });
       }
     });

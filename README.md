@@ -54,7 +54,7 @@
 
 🚀 Live Demo
 
-- TBA
+- [link](https://mnaibei.github.io/cinemaHub/dist/#home)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
