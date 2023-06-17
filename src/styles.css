@@ -284,7 +284,7 @@ body {
 
   .details-container .details-content {
     max-width: 85%;
-    max-height: 85%;
+    max-height: 95%;
     overflow: hidden;
     background-color: rgba(255, 228, 225);
     padding: 20px;
