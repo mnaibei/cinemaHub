@@ -279,13 +279,12 @@ body {
   .details-content {
     display: flex;
     flex-direction: column;
-    overflow: auto;
   }
 
   .details-container .details-content {
     max-width: 85%;
     max-height: 95%;
-    overflow: hidden;
+    overflow: auto;
     background-color: rgba(255, 228, 225);
     padding: 20px;
     border-radius: 8px;
