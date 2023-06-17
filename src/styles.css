@@ -279,7 +279,7 @@ body {
   .details-content {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow: auto;
   }
 
   .details-container .details-content {
