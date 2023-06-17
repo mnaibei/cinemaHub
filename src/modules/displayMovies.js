@@ -21,11 +21,11 @@ const displayMovies = (movies) => {
       : 'https://images.unsplash.com/photo-1509281373149-e957c6296406?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1028&q=80';
 
     movieCard.innerHTML = `
-      <img src=${posterUrl}>
+      <img src=${posterUrl} class="movie-img">
         <div class="movie-info">
-          <h3>${movie.Title}</h3>
-            <p>${movie.Type}</p>
-            <p>${movie.Year}</p>
+          <h3 class="title">${movie.Title}</h3>
+            <p>type: ${movie.Type}</p>
+            <p>year: ${movie.Year}</p>
             </div>
             <button class="view-more-btn">View Details</button>
             <div class="details-container" style="display: none;"></div>
@@ -60,12 +60,18 @@ const displayMovies = (movies) => {
         // Fetch movie details and display
         fetchMovieDetails(movie.imdbID).then((data) => {
           detailsContainer.innerHTML = `
+          <div class="details-content">
             <div class="close-btn">&times;</div> 
-            <img src=${posterUrl}>
+            <div class="content">
+            <img src=${posterUrl} class="modal-img">
+            <div class="description">
             <h3>${movie.Title}</h3>
             <p>Description: ${data.Plot}</p>
             <p>Cast: ${data.Actors}</p>
             <p>Director: ${data.Director}</p>
+            </div>
+            </div>
+            </div>
           `;
           toggleDetailsVisibility(detailsContainer);
 
