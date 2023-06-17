@@ -1,11 +1,16 @@
 import './styles.css';
 import searchMovies from './modules/searchMovies.js';
 import displayMovies from './modules/displayMovies.js';
+import {
+  onlyDisplayResults,
+  onlyDisplayHome,
+} from './modules/single-page-functions.js';
 
 // fetch DOM elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const resultsContainer = document.getElementById('results');
+const home = document.querySelector('.home');
 
 const searchMoviesHandler = async () => {
   // getting user query
@@ -26,9 +31,18 @@ const searchMoviesHandler = async () => {
 searchInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     event.preventDefault();
+    resultsContainer.innerHTML = '';
     searchMoviesHandler();
+    onlyDisplayResults();
   }
 });
 
 // search button functionality, calls the searchMoviesHandler when clicked
-searchButton.addEventListener('click', searchMoviesHandler);
+searchButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  resultsContainer.innerHTML = '';
+  searchMoviesHandler();
+  onlyDisplayResults();
+});
+
+home.addEventListener('click', onlyDisplayHome);
