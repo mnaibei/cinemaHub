@@ -45,4 +45,5 @@ searchButton.addEventListener('click', (e) => {
   onlyDisplayResults();
 });
 
+// home button redirects user back home
 home.addEventListener('click', onlyDisplayHome);
