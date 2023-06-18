@@ -13,11 +13,9 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 # 📖 [Cinema Hub] <a name="about-project"></a>
